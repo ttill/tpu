@@ -169,7 +169,7 @@ def train_and_eval(deeplab_estimator, train_dataset, eval_dataset,
     )
     deeplab_estimator.train(
         input_fn=train_input_fn,
-        max_steps=next_checkpoint
+        max_steps=int(next_checkpoint)
     )
     current_step = next_checkpoint
 
