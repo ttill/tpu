@@ -187,7 +187,7 @@ def train_and_eval(deeplab_estimator, train_dataset, eval_dataset,
     )
     eval_results = deeplab_estimator.evaluate(
         input_fn=eval_input_fn,
-        steps=eval_dataset.num_samples // FLAGS.eval_batch_size
+        steps=eval_dataset.num_samples // FLAGS.eval_batch_size or 1
     )
     tf.logging.info('Eval results: %s' % eval_results)
 
