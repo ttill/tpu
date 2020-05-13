@@ -46,8 +46,8 @@ def _build_network(features, mode, params):
               params['fine_tune_batch_norm']
               if mode == tf.estimator.ModeKeys.TRAIN else False)
       )
-    for level, output in outputs_to_scales_to_logits.iteritems():
-      for scale, logits in output.iteritems():
+    for level in outputs_to_scales_to_logits.items():
+      for scale, logits in output.items():
         outputs_to_scales_to_logits[level][scale] = tf.cast(logits, tf.float32)
   else:
     outputs_to_scales_to_logits = multi_scale_logits(
